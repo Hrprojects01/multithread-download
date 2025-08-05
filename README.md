@@ -1,7 +1,7 @@
 
 # multithread-download
 
-A robust Android background service for downloading large ZIP files efficiently using multi-threaded HTTP range requests, with real-time progress notifications and automatic ZIP extraction.
+A simple example of Android background service for downloading large ZIP files efficiently using multi-threaded HTTP range requests, with real-time progress notifications and automatic ZIP extraction.
 
 ---
 
@@ -139,8 +139,18 @@ You can also listen for broadcast intents with actions:
 - Android API Level 21+ (Lollipop and above)
 - Internet permission in `AndroidManifest.xml`:
 
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+...
+			
+
+<service
+    android:name=".ZipDownloadService"
+    android:enabled="true"
+    android:exported="false"
+    android:foregroundServiceType="dataSync" />
 ```
 
 ---
